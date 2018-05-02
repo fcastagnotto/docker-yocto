@@ -10,4 +10,4 @@ echo ""
 echo "Starting creation of minimal Yocto image..."
 echo "--------------------------------------------"
 echo ""
-bitbake -k core-image-full-cmdline
+bitbake -f -k core-image-base
