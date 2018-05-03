@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-# vers.1.3
+# vers.1.5
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-#export FORCE_UNSAFE_CONFIGURE=1
+
 
 cd poky
 sed -i '/sanity/ s/^#*/#/' meta/conf/sanity.conf
@@ -91,9 +91,13 @@ case $1 in
 				cd /yocto/poky/$1
 				sed -i '/BBLAYERS ?= \" /a \/yocto\/poky\/meta-virtualization \\' conf/bblayers.conf
 			fi
-			if [[ -z `cat conf/bblayers.conf| grep docker\|docker-contrib` ]];then
+			if [[ -z `cat conf/local.conf| grep 'docker\|docker-contrib'` ]];then
 				echo "CORE_IMAGE_EXTRA_INSTALL += \"  docker docker-contrib connman connman-client \"" >> conf/local.conf
 			fi
+
+			useradd developer &
+			chown developer:developer /yocto/poky -R
+			su developer
 
 			echo "Starting creation of Raspberry PI Yocto image with Docker..."
 		fi

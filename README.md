@@ -25,3 +25,5 @@ F.Castagnotto
 
 [2018.05.02] Reset to base image creation. Automation to build and creation of Quemu image and RaspberryPI image.
 
+[2018.05.03] Feature to create a RaspberryPI image with Docker inside!
+

@@ -14,7 +14,7 @@ if [[ ! -z `docker images| grep step.22` ]];then
 		echo "Select type of build: "
 		echo "1 - standard image for Quemu"
 		echo "2 - image for RaspberryPI"
-		#echo "3 - image for RaspberryPI with docker"
+		echo "3 - image for RaspberryPI with docker"
 		echo "x - exit"
 		read -n 1 input
 	
